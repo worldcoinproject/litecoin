@@ -69,7 +69,7 @@ static const Checkpoints::CCheckpointData data = {
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
         boost::assign::map_list_of
-		        (   0, uint256("0xdf83d8ce31005c88ee7e27aaf802a96dd6042800300c35d3045fe013a105ac39"))
+		        (   0, uint256("0xf82bf5dc28fa22b9a8d255c0117875c6f7c07d4d6d2ba24fc180cdcc104a33b5"))
         ;
 static const Checkpoints::CCheckpointData dataTestnet = {
         &mapCheckpointsTestnet,
@@ -153,8 +153,8 @@ public:
         base58Prefixes[PUBKEY_ADDRESS] = list_of(73);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(135);
         base58Prefixes[SECRET_KEY] =     list_of(201);
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0x87)(0x82);  // tries to be unique, doesn't expand to anything clever in base58.
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0x87)(0x81);
+        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);  // tries to be unique, doesn't expand to anything clever in base58.
+        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
@@ -189,12 +189,12 @@ public:
     CTestNetParams() {
         networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
-        pchMessageStart[0] = 0xfc;
-        pchMessageStart[1] = 0xc1;
-        pchMessageStart[2] = 0xb7;
-        pchMessageStart[3] = 0xdc;
+        pchMessageStart[0] = 0xed;
+        pchMessageStart[1] = 0xb2;
+        pchMessageStart[2] = 0xa8;
+        pchMessageStart[3] = 0xcd;
         vAlertPubKey = ParseHex("0449623fc74489a947c4b15d579115591add020e53b3490bf47297dfa3762250625f8ecc2fb4fc59f69bdce8f7080f3167808276ed2c79d297054367566038aa82");
-        nDefaultPort = 19333;
+        nDefaultPort = 21081;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
@@ -203,16 +203,15 @@ public:
         nTargetSpacing = 2.5 * 60; // 2.5 minutes
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1396382110;
-        genesis.nNonce = 1529337473;
+        genesis.nTime = 1453834508;
+        genesis.nNonce = 0;
         hashGenesisBlock = genesis.GetHash();
-//        assert(hashGenesisBlock == uint256("0x4fe8c1ba0a102fea0643287bb22ce7469ecb9b690362013f269a423fefa77b6e"));
+//        assert(hashGenesisBlock == uint256("0xf82bf5dc28fa22b9a8d255c0117875c6f7c07d4d6d2ba24fc180cdcc104a33b5"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("worldcointools.com", "testnet-seed.worldcointools.com"));
-        vSeeds.push_back(CDNSSeedData("xurious.com", "testnet-seed.ltc.xurious.com"));
-        vSeeds.push_back(CDNSSeedData("wemine-testnet.com", "dnsseed.wemine-testnet.com"));
+        vSeeds.push_back(CDNSSeedData("worldcoincore.com", "testnet-seednode.worldcoincore.com"));
+        vSeeds.push_back(CDNSSeedData("cryptodiggers.eu", " testnet-seed-wdc.cryptodiggers.eu"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(111);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(196);

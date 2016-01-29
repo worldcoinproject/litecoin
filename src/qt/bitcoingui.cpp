@@ -222,6 +222,8 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle *networkStyle, QWidget *parent) :
 
     // Subscribe to notifications from core
     subscribeToCoreSignals();
+
+//	setStyleSheet("background-color:rgb(0, 82, 174);");
 }
 
 BitcoinGUI::~BitcoinGUI()

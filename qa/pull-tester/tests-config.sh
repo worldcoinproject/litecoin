@@ -3,7 +3,7 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-BUILDDIR="/f/dev/Worldcoin_core/LTC1021/litecoin"
+BUILDDIR="/f/dev/Worldcoin_core/v0.10.2/worldcoinUnSub"
 EXEEXT=".exe"
 
 # These will turn into comments if they were disabled when configuring.

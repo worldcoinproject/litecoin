@@ -72,9 +72,8 @@ public:
         if (OverviewPage->objectName().isEmpty())
             OverviewPage->setObjectName(QStringLiteral("OverviewPage"));
         OverviewPage->resize(900, 570);
-        OverviewPage->setStyleSheet(QString::fromUtf8("       \n"
-"       background-color: rgb(0, 82, 174);\n"
-"       \n"
+        OverviewPage->setStyleSheet(QString::fromUtf8("\n"
+"       background-color: rgb(215, 232, 234);\n"
 "\n"
 "       QMenu {\n"
 "       }\n"
@@ -116,9 +115,9 @@ public:
 "       }\n"
 "\n"
 "       QComboBox:on {\n"
-"       /*paddi"
-                        "ng-top: 3px;\n"
-"       padding-left: 4px;*/\n"
+"       /*padding-top: 3px;\n"
+""
+                        "       padding-left: 4px;*/\n"
 "       }\n"
 "\n"
 "       QComboBox::drop-down {\n"
@@ -153,9 +152,13 @@ public:
 "       }\n"
 "       /* =========== header ===============*/\n"
 "       QWidget[is_header=\"true\"] {\n"
-"       background-color:"
-                        " #D8DFE9;\n"
+"       background-color: #D8DFE9;\n"
+"   "
+                        "    }\n"
+"       QWidget {\n"
+"       background-color: rgb(0, 82, 174);\n"
 "       }\n"
+"\n"
 "       /* =========== CheckBox ==============*/\n"
 "       QCheckBox {\n"
 "       spacing: 5px;\n"
@@ -190,7 +193,8 @@ public:
 "       QCheckBox::indicator:checked:pressed {\n"
 "       image: url(:/res/check_checked.png);\n"
 "       }\n"
-"     "));
+" "
+                        "    "));
         topLayout = new QVBoxLayout(OverviewPage);
         topLayout->setObjectName(QStringLiteral("topLayout"));
         labelAlerts = new QLabel(OverviewPage);

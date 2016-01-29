@@ -6,15 +6,15 @@ SetCompressor /SOLID lzma
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
 !define VERSION 0.10.2.2
-!define COMPANY "Litecoin Core project"
-!define URL http://www.litecoin.org/
+!define COMPANY "Worldcoin Core project"
+!define URL http://www.worldcoin.org/
 
 # MUI Symbol Definitions
-!define MUI_ICON "/f/dev/Worldcoin_core/LTC1021/litecoin/share/pixmaps/bitcoin.ico"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "/f/dev/Worldcoin_core/LTC1021/litecoin/share/pixmaps/nsis-wizard.bmp"
+!define MUI_ICON "/f/dev/Worldcoin_core/v0.10.2/worldcoinUnSub/share/pixmaps/bitcoin.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "/f/dev/Worldcoin_core/v0.10.2/worldcoinUnSub/share/pixmaps/nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
-!define MUI_HEADERIMAGE_BITMAP "/f/dev/Worldcoin_core/LTC1021/litecoin/share/pixmaps/nsis-header.bmp"
+!define MUI_HEADERIMAGE_BITMAP "/f/dev/Worldcoin_core/v0.10.2/worldcoinUnSub/share/pixmaps/nsis-header.bmp"
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
@@ -22,7 +22,7 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER "Litecoin Core"
 !define MUI_FINISHPAGE_RUN $INSTDIR\litecoin-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/f/dev/Worldcoin_core/LTC1021/litecoin/share/pixmaps/nsis-wizard.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/f/dev/Worldcoin_core/v0.10.2/worldcoinUnSub/share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 # Included files
@@ -48,18 +48,18 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile /f/dev/Worldcoin_core/LTC1021/litecoin/litecoin-${VERSION}-win32-setup.exe
+OutFile /f/dev/Worldcoin_core/v0.10.2/worldcoinUnSub/litecoin-${VERSION}-win32-setup.exe
 !if "32" == "64"
-InstallDir $PROGRAMFILES64\Litecoin
+InstallDir $PROGRAMFILES64\Worldcoin
 !else
-InstallDir $PROGRAMFILES\Litecoin
+InstallDir $PROGRAMFILES\Worldcoin
 !endif
 CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
 VIProductVersion ${VERSION}.2
-VIAddVersionKey ProductName "Litecoin Core"
+VIAddVersionKey ProductName "Worldcoin Core"
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
 VIAddVersionKey CompanyWebsite "${URL}"
@@ -73,19 +73,19 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File /f/dev/Worldcoin_core/LTC1021/litecoin/release/litecoin-qt.exe
-    File /oname=COPYING.txt /f/dev/Worldcoin_core/LTC1021/litecoin/COPYING
-    File /oname=readme.txt /f/dev/Worldcoin_core/LTC1021/litecoin/doc/README_windows.txt
+    File /f/dev/Worldcoin_core/v0.10.2/worldcoinUnSub/release/litecoin-qt.exe
+    File /oname=COPYING.txt /f/dev/Worldcoin_core/v0.10.2/worldcoinUnSub/COPYING
+    File /oname=readme.txt /f/dev/Worldcoin_core/v0.10.2/worldcoinUnSub/doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File /f/dev/Worldcoin_core/LTC1021/litecoin/release/litecoind.exe
-    File /f/dev/Worldcoin_core/LTC1021/litecoin/release/litecoin-cli.exe
+    File /f/dev/Worldcoin_core/v0.10.2/worldcoinUnSub/release/litecoind.exe
+    File /f/dev/Worldcoin_core/v0.10.2/worldcoinUnSub/release/litecoin-cli.exe
     SetOutPath $INSTDIR\doc
-    File /r /f/dev/Worldcoin_core/LTC1021/litecoin/doc\*.*
+    File /r /f/dev/Worldcoin_core/v0.10.2/worldcoinUnSub/doc\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 
-    # Remove old wxwidgets-based-litecoin executable and locales:
-    Delete /REBOOTOK $INSTDIR\litecoin.exe
+    # Remove old wxwidgets-based-worldcoin executable and locales:
+    Delete /REBOOTOK $INSTDIR\worldcoin.exe
     RMDir /r /REBOOTOK $INSTDIR\locale
 SectionEnd
 
@@ -95,7 +95,7 @@ Section -post SEC0001
     WriteUninstaller $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\$(^Name).lnk" $INSTDIR\litecoin-qt.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\$(^Name).lnk" $INSTDIR\worldcoin-qt.exe
     CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall $(^Name).lnk" $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_END
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
@@ -106,10 +106,10 @@ Section -post SEC0001
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" UninstallString $INSTDIR\uninstall.exe
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
-    WriteRegStr HKCR "litecoin" "URL Protocol" ""
-    WriteRegStr HKCR "litecoin" "" "URL:Litecoin"
-    WriteRegStr HKCR "litecoin\DefaultIcon" "" $INSTDIR\litecoin-qt.exe
-    WriteRegStr HKCR "litecoin\shell\open\command" "" '"$INSTDIR\litecoin-qt.exe" "%1"'
+    WriteRegStr HKCR "worldcoin" "URL Protocol" ""
+    WriteRegStr HKCR "worldcoin" "" "URL:Worldcoin"
+    WriteRegStr HKCR "worldcoin\DefaultIcon" "" $INSTDIR\worldcoin-qt.exe
+    WriteRegStr HKCR "worldcoin\shell\open\command" "" '"$INSTDIR\worldcoin-qt.exe" "%1"'
 SectionEnd
 
 # Macro for selecting uninstaller sections
@@ -127,7 +127,7 @@ done${UNSECTION_ID}:
 
 # Uninstaller sections
 Section /o -un.Main UNSEC0000
-    Delete /REBOOTOK $INSTDIR\litecoin-qt.exe
+    Delete /REBOOTOK $INSTDIR\worldcoin-qt.exe
     Delete /REBOOTOK $INSTDIR\COPYING.txt
     Delete /REBOOTOK $INSTDIR\readme.txt
     RMDir /r /REBOOTOK $INSTDIR\daemon
@@ -147,7 +147,7 @@ Section -un.post UNSEC0001
     DeleteRegValue HKCU "${REGKEY}" Path
     DeleteRegKey /IfEmpty HKCU "${REGKEY}\Components"
     DeleteRegKey /IfEmpty HKCU "${REGKEY}"
-    DeleteRegKey HKCR "litecoin"
+    DeleteRegKey HKCR "worldcoin"
     RmDir /REBOOTOK $SMPROGRAMS\$StartMenuGroup
     RmDir /REBOOTOK $INSTDIR
     Push $R0
